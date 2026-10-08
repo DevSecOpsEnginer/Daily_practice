@@ -17,3 +17,22 @@ variable "strg_acc" {
     strg_acc_id    = string
   }))
 }
+
+variable "vnet" {
+  type = map(object({
+    vnet_name     = string
+    location      = string
+    rg            = string
+    address_space = list(string)
+    dns_servers   = list(string)
+  }))
+}
+
+variable "subnet" {
+  type = map(object({
+    name             = string
+    rg               = string
+    vnet_name        = string
+    address_prefixes = list(string)
+  }))
+}
