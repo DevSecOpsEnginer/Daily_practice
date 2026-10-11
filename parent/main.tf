@@ -20,3 +20,15 @@ module "azurerm_subnet" {
   depends_on = [module.azurerm_virtual_network]
   subnet     = var.subnet
 }
+
+module "pub" {
+  source     = "../child/public_ip"
+  depends_on = [module.azurerm_resource_group]
+  pub        = var.pub
+}
+
+module "vm" {
+  source     = "../child/vm"
+  depends_on = [module.azurerm_subnet, module.pub]
+  compute    = var.compute
+}
