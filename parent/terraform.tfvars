@@ -56,7 +56,13 @@ nsg = {
     nsg_name = "frontend_nsg"
     location = "CentralIndia"
     rg       = "rg3"
+  }
+}
 
+asso_nsg = {
+  "asso1" = {
+    nsg_name    = "frontend_nsg"
+    rg          = "rg3"
     subnet_name = "frontend-subnet"
     vnet_name   = "eastusvnet"
   }

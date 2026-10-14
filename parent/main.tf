@@ -33,6 +33,12 @@ module "nsg" {
   nsg        = var.nsg
 }
 
+module "asso_nsg" {
+  source     = "../child/azurerm_association_nsg"
+  depends_on = [module.azurerm_subnet, module.nsg]
+  asso_nsg   = var.asso_nsg
+}
+
 module "vm" {
   source     = "../child/vm"
   depends_on = [module.azurerm_subnet, module.pub]

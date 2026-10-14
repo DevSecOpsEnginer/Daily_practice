@@ -35,9 +35,3 @@ resource "azurerm_network_security_rule" "http" {
   network_security_group_name = "frontend_nsg"
 }
 
-resource "azurerm_subnet_network_security_group_association" "associate" {
-  depends_on                = [azurerm_network_security_group.nsg]
-  for_each                  = var.nsg
-  subnet_id                 = data.azurerm_subnet.subnet[each.key].id
-  network_security_group_id = data.azurerm_network_security_group.nsg[each.key].id
-}
