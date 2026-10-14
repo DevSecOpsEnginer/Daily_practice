@@ -1,11 +1,13 @@
 data "azurerm_subnet" "subnet" {
-  name                 = "frontend_subnet"
-  virtual_network_name = "eastusvnet"
-  resource_group_name  = "rg3"
+  for_each             = var.nsg
+  name                 = each.value.subnet_name
+  virtual_network_name = each.value.vnet_name
+  resource_group_name  = each.value.rg
 }
 
-# Fetch existing NSG
 data "azurerm_network_security_group" "nsg" {
-  name                = "frontend_nsg"
-  resource_group_name = "rg3"
+  for_each            = var.nsg
+  name                = each.value.nsg_name
+  resource_group_name = each.value.rg
 }
+

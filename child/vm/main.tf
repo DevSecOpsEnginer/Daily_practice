@@ -18,7 +18,7 @@ resource "azurerm_linux_virtual_machine" "vm" {
   name                            = each.value.vm_name
   resource_group_name             = each.value.vm_rg
   location                        = each.value.vm_location
-  size                            = "Standard_B1s"
+  size                            = "Standard_D2s_v6"
   admin_username                  = each.value.admin_username
   admin_password                  = each.value.admin_password
   disable_password_authentication = false
@@ -33,8 +33,8 @@ resource "azurerm_linux_virtual_machine" "vm" {
 
   source_image_reference {
     publisher = "Canonical"
-    offer     = "0001-com-ubuntu-server-jammy"
-    sku       = "22_04-lts"
+    offer     = "ubuntu-22_04-lts"
+    sku       = "server"
     version   = "latest"
   }
 }

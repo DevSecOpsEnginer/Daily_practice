@@ -56,6 +56,9 @@ nsg = {
     nsg_name = "frontend_nsg"
     location = "CentralIndia"
     rg       = "rg3"
+
+    subnet_name = "frontend-subnet"
+    vnet_name   = "eastusvnet"
   }
 }
 
