@@ -27,6 +27,12 @@ module "pub" {
   pub        = var.pub
 }
 
+module "nsg" {
+  source     = "../child/azurerm_NSG"
+  depends_on = [module.azurerm_resource_group]
+  nsg        = var.nsg
+}
+
 module "vm" {
   source     = "../child/vm"
   depends_on = [module.azurerm_subnet, module.pub]
