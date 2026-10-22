@@ -1,11 +1,7 @@
 rg_test = {
   "rg1" = {
-    rg_name     = "resource_group1"
-    rg_location = "east us"
-  }
-  "rg2" = {
-    rg_name = "resource_grp2"
-
+    name     = "rg3"
+    location = "CentralIndia"
   }
 }
 
@@ -34,4 +30,45 @@ subnet = {
   }
 }
 
+pub = {
+  "pub1" = {
+    name     = "public-frontend"
+    rg       = "rg3"
+    location = "CentralIndia"
+  }
+}
+
+nsg = {
+  "frontend_nsg" = {
+    nsg_name = "frontend_nsg"
+    location = "CentralIndia"
+    rg       = "rg3"
+  }
+}
+
+asso_nsg = {
+  "asso1" = {
+    nsg_name    = "frontend_nsg"
+    rg          = "rg3"
+    subnet_name = "frontend-subnet"
+    vnet_name   = "eastusvnet"
+  }
+}
+
+compute = {
+  "comp1" = {
+    nic_name     = "nic-vm"
+    nic_location = "CentralIndia"
+    nic_rg       = "rg3"
+
+    subnet_id            = "/subscriptions/9b5c4f38-6534-4978-808d-11b20dd8ad27/resourceGroups/rg3/providers/Microsoft.Network/virtualNetworks/eastusvnet/subnets/frontend-subnet"
+    public_ip_address_id = "/subscriptions/9b5c4f38-6534-4978-808d-11b20dd8ad27/resourceGroups/rg3/providers/Microsoft.Network/publicIPAddresses/public-frontend"
+
+    vm_name        = "frontendvm"
+    vm_location    = "CentralIndia"
+    vm_rg          = "rg3"
+    admin_username = "adminuser"
+    admin_password = "Devops@123"
+  }
+}
 
