@@ -82,7 +82,6 @@ compute = {
     vm_rg          = "rg3"
     admin_username = "adminuser"
     admin_password = "Devops@123"
-
   }
 }
 
