@@ -19,4 +19,19 @@ vnet = {
   }
 }
 
+subnet = {
+  "frontend-sub" = {
+    name             = "frontend-subnet"
+    rg               = "rg3"
+    vnet_name        = "eastusvnet"
+    address_prefixes = ["10.0.1.0/24"]
+  }
+  "backend_sub" = {
+    name             = "backend-subnet"
+    rg               = "rg3"
+    vnet_name        = "eastusvnet"
+    address_prefixes = ["10.0.2.0/24"]
+  }
+}
+
 

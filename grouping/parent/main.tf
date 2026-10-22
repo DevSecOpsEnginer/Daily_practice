@@ -8,3 +8,9 @@ module "azurerm_vnet" {
   source     = "../child/azurerm_vnet"
   vnet       = var.vnet
 }
+
+module "azurerm_subnet" {
+  depends_on = [module.azurerm_vnet]
+  source     = "../child/azurerm_subnet"
+  subnet     = var.subnet
+}
